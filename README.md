@@ -157,16 +157,11 @@ stop
 รูปที่9
 
 ![](http://www.plantuml.com/plantuml/img/NOyn3eCm34Ltdy8Z3Bq0MQZ4tALGgMD4as8f915nGRrz4sYgg1xixw__BBaDB1T-pGQ0YOt2_eOdF8zCA_4REvBFHSu807iGW3HMrurudD3P6dbI5gkBgm5ZDVsAJci1oWI5rLs5mhSYwW8VVCQ_kMRmANAm-MG1T6wpVqY4aYjscS0Vf-o3DEHvzFY3ym1jtDB77m00
-
 )
 
 @startuml
-
 title TV - Activity Diagram 
-
-
 start
-
 if (Switch on) then (No)
     :Tv off;
 else (Yes)
@@ -180,7 +175,22 @@ else (Yes)
     endif
   endif
 endif
-
 stop
-
 @enduml
+
+
+รูปที่10
+
+![](http://www.plantuml.com/plantuml/img/RL2n2eD03Dtp5S6n8DqTnB53yGR7qk7GWC8r5Y_gxpV7SRPNt9ANzrvUqdYnYwml1pA98pHlOhCHW-92MFXzaduqRO7MOseW5LZXC5zbNHXdHXbL7xIFonFBiZxuLM0O_ifq6EkE7FLofurSS8jWQ_Bj6UadI8R3gU5_l1jPYUUTi3LLcdVXAocFckUu4lL4Q8W7_Hm2m0S0)
+
+@startuml
+title OpenOven
+state "switchON" as switchON
+switchON : do/turn on the Oven
+[*] --> switchON:turnOn
+switchON -->switchSelectLevelON :switchNO
+state "switchSelectLevelON" as switchSelectLevelON
+switchSelectLevelON : do/turn on the HeatOven
+switchSelectLevelON -->HeatOvenStart :switchON
+HeatOvenStart -->[*]
+@enduml 
